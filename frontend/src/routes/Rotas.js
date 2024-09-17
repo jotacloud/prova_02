@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import ListarAluno from "../components/aluno/ListarAluno";
 import CriarAluno from "../components/aluno/CriarAluno";
 import EditarAluno from "../components/aluno/EditarAluno";
+import AlunoCursos from "../components/aluno/CursosAlunos";
+
 const router = createBrowserRouter([
     {
         path:"/",
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
                 path:"alunos/editar/:id",
                 element:<EditarAluno />
             },
+            {
+                path:"alunos/cursos",
+                element:<AlunoCursos />
+            }
         ]
     }
 ])
