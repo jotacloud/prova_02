@@ -1,8 +1,8 @@
+import Rotas from "./Rotas";
+
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+      <Rotas />
   );
 }
 
