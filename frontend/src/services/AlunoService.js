@@ -1,11 +1,15 @@
 import axios from "axios";
 
-const url = "http://localhost:3001/professores/";
+const url = "http://localhost:3001/";
+
+const endpoints = {
+  alunos: `${url}alunos/`
+};
 
 class AlunoService {
     static getAlunosAxiosAsyncAwait = async (callback) => {
       try {
-        const response = await axios.get(url+"listar");
+        const response = await axios.get(`${endpoints.alunos}listar`);
         callback(response.data);
       } catch (error) {
         console.log(error);
@@ -14,7 +18,7 @@ class AlunoService {
 
     static getAlunoById = (id, callback) => {
       axios
-        .get(`http://localhost:3001/professores/${id}`)
+        .get(`${endpoints.alunos}listar/${id}`)
         .then((response) => {
           callback(response.data);
         })
@@ -23,7 +27,7 @@ class AlunoService {
   
     static atualizarAlunoById = (id, alunoEditado, callback) => {
       axios
-        .put(`http://localhost:3001/alunos/${id}`, alunoEditado)
+        .put(`${endpoints.alunos}${id}`, alunoEditado)
         .then((response) => {
           callback(response);
         })
@@ -32,7 +36,7 @@ class AlunoService {
   
     static deleteAlunoById = (id, callback) => {
       axios
-        .delete(`http://localhost:3001/alunos/apagar/${id}`)
+        .delete(`${endpoints.alunos}apagar/${id}`)
         .then((response) => {
           //console.log(response);
           callback(response)

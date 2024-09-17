@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const url = "http://localhost:3001/";
+
+const endpoints = {
+  alunos: `${url}alunos/`
+};
+
+
 const EditarAluno = () => {
   const [nome, setNome] = useState("");
   const [curso, setCurso] = useState("RC");
@@ -12,7 +19,7 @@ const EditarAluno = () => {
 
   useEffect(() => {
     
-    axios.get(`http://localhost:3001/alunos/${id}`)
+    axios.get(`${endpoints.alunos}${id}`)
       .then((response) => {
         const { nome, curso, ira } = response.data;
         setNome(nome);
@@ -26,7 +33,7 @@ const EditarAluno = () => {
     event.preventDefault();
     const alunoEditado = { nome, curso, ira };
 
-    axios.put(`http://localhost:3001/alunos/atualizar/${id}`, alunoEditado)
+    axios.put(`${endpoints.alunos}atualizar/${id}`, alunoEditado)
       .then((response) => {
         console.log(response);
         navigate("/alunos/listar");

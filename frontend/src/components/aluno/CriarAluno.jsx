@@ -3,6 +3,12 @@ import { useState } from "react"
 
 import axios from "axios"
 
+const url = "http://localhost:3001/";
+
+const endpoints = {
+  alunos: `${url}alunos/`
+};
+
 const CriarAluno = () => {
 
     const [nome, setNome] = useState("")
@@ -16,7 +22,7 @@ const CriarAluno = () => {
     }
 
     const postAlunoAxiosThenCatch = (novoAluno) => {
-        axios.post("http://localhost:3001/alunos/criar", novoAluno)
+        axios.post(`${endpoints.alunos}criar`, novoAluno)
         .then((response) => {
             console.log(response)
         })
