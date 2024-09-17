@@ -27,7 +27,7 @@ class AlunoService {
   
     static atualizarAlunoById = (id, alunoEditado, callback) => {
       axios
-        .put(`${endpoints.alunos}${id}`, alunoEditado)
+        .put(`${endpoints.alunos}editar/${id}`, alunoEditado)
         .then((response) => {
           callback(response);
         })
