@@ -7,7 +7,6 @@ const ListarAlunosPorCurso = () => {
   useEffect(() => {
     AlunoService.getAlunosAxiosAsyncAwait(json => {
       setAlunos(json);
-      console.log(alunos)
     });
   }, []);
 
@@ -35,9 +34,9 @@ const ListarAlunosPorCurso = () => {
             </thead>
             <tbody>
               {alunosPorCurso[curso].map(aluno => (
-                <tr key={aluno._id}>
-                  <td>{aluno.nome}</td>
-                  <td>{aluno.ira}</td>
+                <tr key={aluno._id} className={aluno.ira >= 7 ? "acima-da-media" : ""}>
+                  <td className={aluno.ira >= 7 ? "acima-da-media" : ""}>{aluno.nome}</td>
+                  <td className={aluno.ira >= 7 ? "acima-da-media" : ""}>{aluno.ira}</td>
                 </tr>
               ))}
             </tbody>
