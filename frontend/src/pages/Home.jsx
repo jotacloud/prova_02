@@ -1,20 +1,27 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
 
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" style={{marginLeft:"13px"}} href="/">
+          <a
+            className="navbar-brand"
+            style={{ marginLeft: '13px' }}
+            href="/"
+          >
             CRUD
           </a>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a href="/" className="nav-link active">
+                <a
+                  href="/"
+                  className="nav-link active"
+                >
                   Home
                 </a>
               </li>
@@ -30,19 +37,25 @@ const Home = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="alunos/listar">
+                    <Link
+                      className="dropdown-item"
+                      to="alunos/listar"
+                    >
                       Listar Aluno
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="alunos/criar">
+                    <Link
+                      className="dropdown-item"
+                      to="alunos/criar"
+                    >
                       Criar Aluno
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="alunos/editar">
+                    {/* <Link className="dropdown-item" to="alunos/editar">
                       Editar Aluno
-                    </Link>
+                    </Link> */}
                   </li>
                 </ul>
               </li>

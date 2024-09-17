@@ -1,65 +1,58 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import "../../css/crud.css";
-import AlunoService from "../../services/AlunoService";
+import '../../css/crud.css';
+import AlunoService from '../../services/AlunoService';
 
-import { useState, useEffect } from "react";
-
+import { useState, useEffect } from 'react';
 
 const ListarAluno = () => {
   const [alunos, setAlunos] = useState([]);
 
   useEffect(() => {
-    AlunoService.getAlunosAxiosAsyncAwait((json) => {
+    AlunoService.getAlunosAxiosAsyncAwait(json => {
       setAlunos(json);
     });
   }, []);
 
-  const deleteAluno = (id) => {
-    if(window.confirm(`Deseja realmente excluir id = ${id}`)){
-      AlunoService.deleteAlunoById(
-        id,
-        (response) => {
-          //console.log(response)
-          const res = alunos.filter(
-            (aluno) => aluno._id !== id
-          )
-          //console.log(res)
-          setAlunos(res)
-        }
-      )
+  const deleteAluno = id => {
+    const aluno = alunos.find(aluno => aluno._id === id);
+    if (
+      aluno &&
+      window.confirm(`Deseja realmente excluir o aluno ${aluno.nome}?`)
+    ) {
+      AlunoService.deleteAlunoById(id, response => {
+        const res = alunos.filter(aluno => aluno._id !== id);
+        setAlunos(res);
+      });
     }
-  }
+  };
 
   const corpoTabela = () => {
-    const novoArray = alunos.map(
-      (aluno) => {
-        return (
-          <tr>
-            <th scope="row">{aluno._id}</th>
-            <td>{aluno.nome}</td>
-            <td>{aluno.curso}</td>
-            <td>{aluno.ira}</td>
-            <td className="button-content">
+    const novoArray = alunos.map(aluno => {
+      return (
+        <tr>
+          <th scope="row">{aluno._id}</th>
+          <td>{aluno.nome}</td>
+          <td>{aluno.curso}</td>
+          <td>{aluno.ira}</td>
+          <td className="button-content">
+            <Link
+              className="btn btn-primary"
+              to={`/alunos/editar/${aluno._id}`}
+            >
+              Editar
+            </Link>
 
-              <Link
-                className="btn btn-primary"
-                to={`/alunos/editar/${aluno._id}`}
-              >
-                Editar
-              </Link>
-
-              <button 
-                className="btn btn-danger"
-                onClick={() => deleteAluno(aluno._id)}
-              >
-                Apagar
-              </button>
-            </td>
-          </tr>
-        ); //return de cada elemento como um JSX
-      } //funcao arrow
-    ); //map
+            <button
+              className="btn btn-danger"
+              onClick={() => deleteAluno(aluno._id)}
+            >
+              Apagar
+            </button>
+          </td>
+        </tr>
+      );
+    });
     return novoArray;
   };
 
