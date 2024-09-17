@@ -14,12 +14,25 @@
     justify-content: space-evenly;
 }
 
+.media-ira {
+    background-color: #5f5f5f !important;
+    font-weight: bold;
+}
+
+.abaixo-da-media {
+    background-color: #a50606 !important;
+}
+
+.acima-da-media {
+    background-color: #13ce23 !important;
+}
+
 fieldset.scheduler-border {
     border: 1px groove #ddd !important;
     padding: 1.4em 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
 }
 
 .div-button-submit {
