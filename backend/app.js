@@ -6,7 +6,6 @@ var logger = require('morgan');
 require('./db/mongo');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var alunosRouter = require('./routes/alunos');
 
 var app = express();

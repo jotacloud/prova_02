@@ -1,31 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// const AlunoService = require("../services/AlunoService");
 const AlunoServiceMongo = require('../services/AlunoServiceMongo');
-
-/*router.get(
-    "/listar",
-    (request, response, next) => {
-        response.json(ProfessorService.listar())
-    }
-)*/
-
-/*router.post(
-    "/criar",
-    (request, response, next) => {
-        const novoProfessor = ProfessorService.criar(request.body)
-        response.json(novoProfessor)
-    }
-)*/
-
-/*router.delete(
-    "/apagar/:id",
-    (request,response,next) => {
-        const res = ProfessorService.apagar(request.params.id)
-        response.json({"res":res})
-    }
-)*/
 
 //MONGO
 router.get('/listar', (request, response, next) => {
