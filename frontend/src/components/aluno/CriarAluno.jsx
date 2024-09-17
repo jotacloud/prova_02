@@ -16,7 +16,7 @@ const CriarAluno = () => {
     }
 
     const postAlunoAxiosThenCatch = (novoAluno) => {
-        axios.post("http://localhost:3001/professores/criar", novoAluno)
+        axios.post("http://localhost:3001/alunos/criar", novoAluno)
         .then((response) => {
             console.log(response)
         })
@@ -54,10 +54,10 @@ const CriarAluno = () => {
                         onChange={(event) => setCurso(event.target.value)}
                         className="form-select"
                     >
-                        <option value="RC">Redes</option>
-                        <option value="CC">Ciência</option>
+                        <option value="RC">Redes de Computadores</option>
+                        <option value="CC">Ciência da Computação</option>
                         <option value="ES">Engenharia de Software</option>
-                        <option value="DD">Design</option>
+                        <option value="DD">Design Digital</option>
                         <option value="EC">Engenharia da Computação</option>
                     </select>
                 </div>
