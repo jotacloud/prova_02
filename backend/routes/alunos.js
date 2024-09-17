@@ -16,4 +16,8 @@ router.delete('/apagar/:id', (request, response, next) => {
   AlunoServiceMongo.apagar(request, response);
 });
 
+router.put('/editar/:id', (request, response, next) => {
+  AlunoServiceMongo.update(request, response);
+});
+
 module.exports = router;

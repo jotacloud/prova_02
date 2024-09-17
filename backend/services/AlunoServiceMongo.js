@@ -24,6 +24,12 @@ class AlunoServiceMongo {
       })
       .catch(error => console.log(error));
   }
+  static update(request, response) {
+    AlunoModel.findByIdAndUpdate(request.params.id, request.body, {new:true})
+    .then((aluno) => {
+        response.status(201).json(aluno);
+    })
+}
 }
 
 module.exports = AlunoServiceMongo;
